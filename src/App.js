@@ -9,7 +9,7 @@ function App() {
 
     useEffect(() => {
         steem.api.getAccountHistory(username, -1, 100, (err, result) => {
-            let transfers = result.filter((tx) => tx[1].op[0] === "transfer");
+            let transfers = result.filter((x) => x[1].op[0] === "transfer");
             let myArray = [];
             for (let item in transfers) {
                 myArray.push(transfers[item][1]);
@@ -20,6 +20,8 @@ function App() {
         };
     }, [username]);
 
+    data.sort((a, b) => b.block - a.block);
+
     // console.log(username)
     return (
         <div className="App">
@@ -27,10 +29,12 @@ function App() {
                 style={{
                     padding: "1rem",
                     borderRadius: "2rem",
-                    fontSize: "19px",
+                    fontSize: "23px",
                     textAlign: "center",
                     margin: "1rem",
-                    width:"40%"
+                    width: "35%",
+                    color: "#000000",
+                    backgroundColor: "#b6b6b6",
                 }}
                 value={username}
                 type="text"
@@ -38,15 +42,19 @@ function App() {
             />
 
             {data.map((dt, index) => (
-                <div style={{
-                    margin: "1rem",
-                    padding: "0.2rem",
-                    textAlign: "center",
-                    borderRadius: "2rem",
-                    fontSize: "19px"
-                }}>
+                <div
+                    style={{
+                        margin: "1rem",
+                        padding: "0.2rem",
+                        textAlign: "center",
+                        borderRadius: "2rem",
+                        fontSize: "19px",
+                    }}
+                    key={index}
+                >
                     <p key={index} style={{color: "#d0d0d0"}}>
-                        <b>{moment(dt.timestamp).fromNow()}</b> - Claim rewards: <span style={{color:"#ffcf29"}}>{dt.op[1].amount}</span>
+                        <b>{moment(dt.timestamp).fromNow()}</b> - Claim rewards:{" "}
+                        <span style={{color: "#ff9100"}}>{dt.op[1].amount}</span>
                     </p>
                 </div>
             ))}
