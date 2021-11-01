@@ -8,7 +8,6 @@ function App() {
     const [username, setUsername] = useState("ned");
 
     useEffect(() => {
-        let isMounted = true
         steem.api.getAccountHistory(username, -1, 100, (err, result) => {
             let transfers = result.filter(tx => tx[1].op[0] === 'transfer')
             let myArray = []
@@ -18,7 +17,6 @@ function App() {
             setData(myArray)
         })
         return () => {
-            isMounted = false
         }
     }, [username])
 
