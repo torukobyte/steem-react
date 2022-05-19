@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cb0a65e-2f68-41a4-af2e-670d332eb8f3" name="Changes" comment="">
+    <list default="true" id="4cb0a65e-2f68-41a4-af2e-670d332eb8f3" name="Changes" comment="basic ui changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
@@ -9,6 +9,12 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="20KIbQfwt2Qj3Vvos2y3dmxExPl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -19,23 +25,14 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../../Android/Sdk" />
-    <property name="javascript.nodejs.core.library.configured.version" value="14.18.1" />
-    <property name="javascript.nodejs.core.library.typings.version" value="14.17.32" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
-    <property name="nodejs_interpreter_path" value="node" />
-    <property name="nodejs_package_manager_path" value="C:\Users\Burak\AppData\Roaming\npm\node_modules\npm" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;net.vektah.codeglance2.config.ConfigEntry&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -63,7 +60,11 @@
       <option name="presentableId" value="Default" />
       <updated>1635786924004</updated>
       <workItem from="1635786925168" duration="2826000" />
-      <workItem from="1635806213852" duration="2450000" />
+      <workItem from="1635806213852" duration="2530000" />
+      <workItem from="1651098614821" duration="678000" />
+      <workItem from="1651125849707" duration="207000" />
+      <workItem from="1652114330273" duration="37000" />
+      <workItem from="1652714272789" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="steem">
       <created>1635787175184</created>
@@ -100,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635807387704</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="basic ui changes">
+      <created>1635808711837</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635808711837</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

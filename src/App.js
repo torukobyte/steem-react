@@ -5,7 +5,7 @@ import moment from "moment";
 
 function App() {
     const [data, setData] = useState([]);
-    const [username, setUsername] = useState("ned");
+    const [username, setUsername] = useState("");
 
     useEffect(() => {
         steem.api.getAccountHistory(username, -1, 100, (err, result) => {
@@ -16,8 +16,7 @@ function App() {
             }
             setData(myArray);
         });
-        return () => {
-        };
+        return() => {};
     }, [username]);
 
     data.sort((a, b) => b.block - a.block);
@@ -25,40 +24,54 @@ function App() {
     // console.log(username)
     return (
         <div className="App">
-            <input
-                style={{
-                    padding: "1rem",
-                    borderRadius: "2rem",
-                    fontSize: "23px",
-                    textAlign: "center",
-                    margin: "1rem",
-                    width: "35%",
-                    color: "#000000",
-                    backgroundColor: "#b6b6b6",
-                }}
+            <input style={
+                    {
+                        padding: "1rem",
+                        borderRadius: "2rem",
+                        fontSize: "23px",
+                        textAlign: "center",
+                        margin: "1rem",
+                        width: "35%",
+                        outline: "none",
+                        color: "#000000",
+                        backgroundColor: "#b6b6b6"
+                    }
+                }
+                placeholder={"Enter a username"}
                 value={username}
                 type="text"
-                onChange={(e) => setUsername(e.target.value)}
-            />
-
-            {data.map((dt, index) => (
-                <div
-                    style={{
-                        margin: "1rem",
-                        padding: "0.2rem",
-                        textAlign: "center",
-                        borderRadius: "2rem",
-                        fontSize: "19px",
-                    }}
-                    key={index}
-                >
-                    <p key={index} style={{color: "#d0d0d0"}}>
-                        <b>{moment(dt.timestamp).fromNow()}</b> - Claim rewards:{" "}
-                        <span style={{color: "#ff9100"}}>{dt.op[1].amount}</span>
+                onChange={
+                    (e) => setUsername(e.target.value)
+                }/> {
+            data.map((dt, index) => (
+                <div style={
+                        {
+                            margin: "1rem",
+                            padding: "0.2rem",
+                            textAlign: "center",
+                            borderRadius: "2rem",
+                            fontSize: "19px"
+                        }
+                    }
+                    key={index}>
+                    <p key={index}
+                        style={
+                            {color: "#d0d0d0"}
+                    }>
+                        <b>{
+                            moment(dt.timestamp).fromNow()
+                        }</b>
+                        - Claim rewards:{" "}
+                        <span style={
+                            {color: "#ff9100"}
+                        }>
+                            {
+                            dt.op[1].amount
+                        }</span>
                     </p>
                 </div>
-            ))}
-        </div>
+            ))
+        } </div>
     );
 }
 
