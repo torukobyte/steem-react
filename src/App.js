@@ -1,136 +1,118 @@
-import "./App.css";
-import { useEffect, useState } from "react";
-import steem from "steem";
-import moment from "moment";
+import './App.css';
+import {useEffect, useState} from 'react';
+import steem from 'steem';
+import moment from 'moment';
 
 function App() {
-<<<<<<< HEAD
     const [data, setData] = useState([]);
-    const [username, setUsername] = useState("");
+    const [username, setUsername] = useState('ned');
 
     useEffect(() => {
         steem.api.getAccountHistory(username, -1, 100, (err, result) => {
-            let transfers = result.filter((x) => x[1].op[0] === "transfer");
+            let transfers = result.filter((x) => x[1].op[0] === 'transfer');
             let myArray = [];
             for (let item in transfers) {
                 myArray.push(transfers[item][1]);
             }
             setData(myArray);
         });
-        return() => {};
+        return () => {};
     }, [username]);
-=======
-  const [data, setData] = useState([]);
-  const [username, setUsername] = useState("ned");
 
-  useEffect(() => {
-    steem.api.getAccountHistory(username, -1, 100, (err, result) => {
-      let transfers = result.filter((x) => x[1].op[0] === "transfer");
-      let myArray = [];
-      for (let item in transfers) {
-        myArray.push(transfers[item][1]);
-      }
-      setData(myArray);
-    });
-    return () => {};
-  }, [username]);
->>>>>>> fdf9fae881a6811b0811da1dc108d123fd997b3e
+    data.sort((a, b) => b.block - a.block);
 
-  data.sort((a, b) => b.block - a.block);
-
-<<<<<<< HEAD
     // console.log(username)
     return (
         <div className="App">
             <input style={
-                    {
-                        padding: "1rem",
-                        borderRadius: "2rem",
-                        fontSize: "23px",
-                        textAlign: "center",
-                        margin: "1rem",
-                        width: "35%",
-                        outline: "none",
-                        color: "#000000",
-                        backgroundColor: "#b6b6b6"
-                    }
+                {
+                    padding: '1rem',
+                    borderRadius: '2rem',
+                    fontSize: '23px',
+                    textAlign: 'center',
+                    margin: '1rem',
+                    width: '35%',
+                    outline: 'none',
+                    color: '#000000',
+                    backgroundColor: '#b6b6b6'
                 }
-                placeholder={"Enter a username"}
-                value={username}
-                type="text"
-                onChange={
-                    (e) => setUsername(e.target.value)
-                }/> {
+            }
+                   placeholder={'Enter a username'}
+                   value={username}
+                   type="text"
+                   onChange={
+                       (e) => setUsername(e.target.value)
+                   }/> {
             data.map((dt, index) => (
                 <div style={
-                        {
-                            margin: "1rem",
-                            padding: "0.2rem",
-                            textAlign: "center",
-                            borderRadius: "2rem",
-                            fontSize: "19px"
-                        }
+                    {
+                        margin: '1rem',
+                        padding: '0.2rem',
+                        textAlign: 'center',
+                        borderRadius: '2rem',
+                        fontSize: '19px'
                     }
-                    key={index}>
+                }
+                     key={index}>
                     <p key={index}
-                        style={
-                            {color: "#d0d0d0"}
-                    }>
+                       style={
+                           {color: '#d0d0d0'}
+                       }>
                         <b>{
                             moment(dt.timestamp).fromNow()
                         }</b>
-                        - Claim rewards:{" "}
+                        - Claim rewards:{' '}
                         <span style={
-                            {color: "#ff9100"}
+                            {color: '#ff9100'}
                         }>
                             {
-                            dt.op[1].amount
-                        }</span>
+                                dt.op[1].amount
+                            }</span>
                     </p>
                 </div>
             ))
         } </div>
     );
-=======
-  // console.log(username)
-  return (
-    <div className="App">
-      <input
-        style={{
-          padding: "1rem",
-          borderRadius: "2rem",
-          fontSize: "23px",
-          textAlign: "center",
-          margin: "1rem",
-          width: "35%",
-          color: "#000000",
-          backgroundColor: "#b6b6b6",
-        }}
-        value={username}
-        type="text"
-        onChange={(e) => setUsername(e.target.value)}
-      />
+    // console.log(username)
+    return (
+        <div className="App">
+            <input
+                style={{
+                    padding: '1rem',
+                    borderRadius: '2rem',
+                    fontSize: '23px',
+                    textAlign: 'center',
+                    margin: '1rem',
+                    width: '35%',
+                    color: '#000000',
+                    backgroundColor: '#b6b6b6',
+                }}
+                value={username}
+                type="text"
+                onChange={(e) => setUsername(e.target.value)}
+            />
 
-      {data.map((dt, index) => (
-        <div
-          style={{
-            margin: "1rem",
-            padding: "0.2rem",
-            textAlign: "center",
-            borderRadius: "2rem",
-            fontSize: "19px",
-          }}
-          key={index}
-        >
-          <p key={index} style={{ color: "#d0d0d0" }}>
-            <b>{moment(dt.timestamp).fromNow()}</b> - Claim rewards:{" "}
-            <span style={{ color: "#ff9100" }}>{dt.op[1].amount}</span>
-          </p>
+            {data.map((dt, index) => (
+                <div
+                    style={{
+                        margin: '1rem',
+                        padding: '0.2rem',
+                        textAlign: 'center',
+                        borderRadius: '2rem',
+                        fontSize: '19px',
+                    }}
+                    key={index}
+                >
+                    <p key={index} style={{color: '#d0d0d0'}}>
+                        <b>{moment(dt.timestamp).fromNow()}</b> - Claim
+                                                                rewards:{' '}
+                        <span
+                            style={{color: '#ff9100'}}>{dt.op[1].amount}</span>
+                    </p>
+                </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
->>>>>>> fdf9fae881a6811b0811da1dc108d123fd997b3e
+    );
 }
 
 export default App;
